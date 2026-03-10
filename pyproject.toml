@@ -1,0 +1,11 @@
+[project]
+name = "codebase-cartography"
+version = "0.1.0"
+description = "Automated codebase intelligence system"
+dependencies = [
+    "tree-sitter",
+    "networkx",
+    "pydantic",
+    "sqlglot",
+    "ollama"
+]
