@@ -1,0 +1,130 @@
+source,target,transformation_type,source_file,attrs_json
+"
+            INSERT OR REPLACE INTO _glue_source_registry
+            (view_name, glue_database, glue_table, metadata_location, registered_at)
+            VALUES (?, ?, ?, ?, CURRENT_TIMESTAMP)
+        ",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""INSTALL {ext}",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""LOAD {ext}",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+CALL load_aws_credentials(),python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"
+            CREATE TABLE IF NOT EXISTS _glue_source_registry (
+                view_name VARCHAR PRIMARY KEY,
+                glue_database VARCHAR,
+                glue_table VARCHAR,
+                metadata_location VARCHAR,
+                registered_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )
+        ",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"
+                    SELECT view_name, metadata_location
+                    FROM _glue_source_registry
+                    WHERE glue_database = ?
+                ",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"
+            SELECT
+                view_name,
+                glue_database,
+                glue_table,
+                registered_at
+            FROM _glue_source_registry
+            ORDER BY registered_at DESC
+        ",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f'DROP TABLE IF EXISTS ""{schema}"".""{name}",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+VACUUM,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+CHECKPOINT,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""SHOW SCHEMAS FROM {catalog}",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""SHOW TABLES FROM {catalog}.{schema}",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""SELECT table_name FROM {catalog}.information_schema.views ",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""SET s3_region='{region}",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+INSTALL httpfs,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+LOAD httpfs,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+INSTALL aws,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+LOAD aws,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+INSTALL iceberg,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+LOAD iceberg,python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"
+            SELECT
+                glue_database,
+                COUNT(*) as table_count
+            FROM _glue_source_registry
+            GROUP BY glue_database
+            ORDER BY glue_database
+        ",python:target_repo/bin/dbt-local-dev.py,python_read,target_repo/bin/dbt-local-dev.py,"{""source_file"": ""target_repo/bin/dbt-local-dev.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+python:target_repo/bin/utils/chunk_tracking_logs_by_day.py,"f""Processing files for {date_str}\n\n",python_write,target_repo/bin/utils/chunk_tracking_logs_by_day.py,"{""source_file"": ""target_repo/bin/utils/chunk_tracking_logs_by_day.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/bin/utils/chunk_tracking_logs_by_day.py,"f""Copying {source_bucket}/{srckey} to {dest_bucket}/{destkey}\n",python_write,target_repo/bin/utils/chunk_tracking_logs_by_day.py,"{""source_file"": ""target_repo/bin/utils/chunk_tracking_logs_by_day.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/bin/utils/chunk_tracking_logs_by_day.py,"f""Deleting {obj_key} from {source_bucket}\n",python_write,target_repo/bin/utils/chunk_tracking_logs_by_day.py,"{""source_file"": ""target_repo/bin/utils/chunk_tracking_logs_by_day.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/bin/utils/chunk_tracking_logs_by_day.py,"f""Refusing to delete {source_bucket}/{srckey} because it ",python_write,target_repo/bin/utils/chunk_tracking_logs_by_day.py,"{""source_file"": ""target_repo/bin/utils/chunk_tracking_logs_by_day.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"# Superset Assets Promotion Manifest
+",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"# Source: QA (bi-qa.ol.mit.edu)
+",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"# Target: Production (bi.ol.mit.edu)
+",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"
+",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"## Published Dashboards Promoted
+",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"f""- {title} (file: {dashboard_file.name})\n",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/commands/promote.py,"f""- (file: {dashboard_file.name})\n",python_write,target_repo/src/ol_superset/ol_superset/commands/promote.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/commands/promote.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/lib/superset_api.py,b'<html><body><h1>Authorization successful!</h1>',python_write,target_repo/src/ol_superset/ol_superset/lib/superset_api.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/lib/superset_api.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/src/ol_superset/ol_superset/lib/superset_api.py,b'<html><body><h1>Authorization failed!</h1>',python_write,target_repo/src/ol_superset/ol_superset/lib/superset_api.py,"{""source_file"": ""target_repo/src/ol_superset/ol_superset/lib/superset_api.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+python:target_repo/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/openedx.py,"
+",python_write,target_repo/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/openedx.py,"{""source_file"": ""target_repo/packages/ol-orchestrate-lib/src/ol_orchestrate/lib/openedx.py"", ""transformation_type"": ""python_write"", ""line_range"": """"}"
+DROP TABLE IF EXISTS tracking_logs,python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+DROP TABLE IF EXISTS tracking_logs,python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""""""
+            INSTALL httpfs;
+            INSTALL json;
+            LOAD httpfs;
+            SET s3_access_key_id=""{config.s3_key}"";
+            SET s3_secret_access_key=""{config.s3_secret}"";
+            ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""""""
+            SET s3_session_token=""{config.s3_token}"";
+            ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""""""
+            SET s3_region=""us-east-1"";
+            CREATE TABLE tracking_logs AS
+            SELECT * FROM read_ndjson_auto('{s3_path}',
+            FILENAME=1, union_by_name=1, maximum_depth=1);
+            ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"SELECT column_name FROM temp.information_schema.columns
+                    WHERE table_name = 'tracking_logs'
+                ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""ALTER TABLE tracking_logs ALTER {col} TYPE VARCHAR",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""ALTER TABLE tracking_logs ALTER {col} TYPE VARCHAR",python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"UPDATE tracking_logs
+            SET time = to_timestamp(CAST(time AS BIGINT))
+            WHERE TRY_CAST(time AS BIGINT) IS NOT NULL
+            ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"UPDATE tracking_logs
+            SET time = to_timestamp(CAST(time AS BIGINT))
+            WHERE TRY_CAST(time AS BIGINT) IS NOT NULL
+            ",python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"
+            UPDATE tracking_logs
+            SET time = strftime(TRY_CAST(time AS TIMESTAMP), '%Y-%m-%d %H:%M:%S.%f')
+            ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"
+            UPDATE tracking_logs
+            SET time = strftime(TRY_CAST(time AS TIMESTAMP), '%Y-%m-%d %H:%M:%S.%f')
+            ",python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+INSTALL json;,python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+INSTALL json;,python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+SELECT DISTINCT filename FROM tracking_logs,python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""""""COPY (SELECT {"", "".join(columns)} FROM tracking_logs
+                        WHERE filename = '{file_name}')
+                        TO '{local_file_name}' (FORMAT JSON)
+                    ",python:target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,python_read,target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py,"{""source_file"": ""target_repo/dg_projects/openedx/openedx/ops/normalize_logs.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""""""
+            CREATE TABLE tracking_logs AS
+            SELECT * FROM read_ndjson_auto('{edxorg_raw_tracking_log}',
+            FILENAME=1, union_by_name=1, maximum_depth=1, ignore_errors=true);
+            ",python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"SELECT column_name FROM information_schema.columns
+            WHERE table_name = 'tracking_logs'
+            ",python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"
+"f""""""COPY (SELECT {"", "".join(columns)} FROM tracking_logs)
+            TO '{transformed_logs}' (FORMAT JSON)
+            ",python:target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,python_read,target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py,"{""source_file"": ""target_repo/dg_projects/edxorg/edxorg/assets/edxorg_archive.py"", ""transformation_type"": ""python_read"", ""line_range"": """"}"

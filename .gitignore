@@ -1,7 +1,7 @@
 .venv/
 target_repo/
 
-build/
+
 logs/
 *.log
 __pycache__/
@@ -9,3 +9,4 @@ __pycache__/
 .DS_Store
 *.sqlite3
 *.db
+vendor/
