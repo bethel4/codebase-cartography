@@ -1,0 +1,451 @@
+[
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "annotations",
+        "importPath": "__future__",
+        "description": "__future__",
+        "isExtraImport": true,
+        "detail": "__future__",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Iterable",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "Any",
+        "importPath": "typing",
+        "description": "typing",
+        "isExtraImport": true,
+        "detail": "typing",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "subprocess",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "subprocess",
+        "description": "subprocess",
+        "detail": "subprocess",
+        "documentation": {}
+    },
+    {
+        "label": "dataclass",
+        "importPath": "dataclasses",
+        "description": "dataclasses",
+        "isExtraImport": true,
+        "detail": "dataclasses",
+        "documentation": {}
+    },
+    {
+        "label": "datetime",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "timezone",
+        "importPath": "datetime",
+        "description": "datetime",
+        "isExtraImport": true,
+        "detail": "datetime",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "Path",
+        "importPath": "pathlib",
+        "description": "pathlib",
+        "isExtraImport": true,
+        "detail": "pathlib",
+        "documentation": {}
+    },
+    {
+        "label": "networkx",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "networkx",
+        "description": "networkx",
+        "detail": "networkx",
+        "documentation": {}
+    },
+    {
+        "label": "BaseModel",
+        "importPath": "pydantic",
+        "description": "pydantic",
+        "isExtraImport": true,
+        "detail": "pydantic",
+        "documentation": {}
+    },
+    {
+        "label": "Language",
+        "importPath": "tree_sitter",
+        "description": "tree_sitter",
+        "isExtraImport": true,
+        "detail": "tree_sitter",
+        "documentation": {}
+    },
+    {
+        "label": "Language",
+        "importPath": "tree_sitter",
+        "description": "tree_sitter",
+        "isExtraImport": true,
+        "detail": "tree_sitter",
+        "documentation": {}
+    },
+    {
+        "label": "Parser",
+        "importPath": "tree_sitter",
+        "description": "tree_sitter",
+        "isExtraImport": true,
+        "detail": "tree_sitter",
+        "documentation": {}
+    },
+    {
+        "label": "build_languages",
+        "importPath": "analyzers.tree_sitter_analyzer",
+        "description": "analyzers.tree_sitter_analyzer",
+        "isExtraImport": true,
+        "detail": "analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "load_language",
+        "importPath": "analyzers.tree_sitter_analyzer",
+        "description": "analyzers.tree_sitter_analyzer",
+        "isExtraImport": true,
+        "detail": "analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "make_parser",
+        "importPath": "analyzers.tree_sitter_analyzer",
+        "description": "analyzers.tree_sitter_analyzer",
+        "isExtraImport": true,
+        "detail": "analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "build_languages",
+        "importPath": "analyzers.tree_sitter_analyzer",
+        "description": "analyzers.tree_sitter_analyzer",
+        "isExtraImport": true,
+        "detail": "analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "write_graph_json",
+        "importPath": "graph.knowledge_graph",
+        "description": "graph.knowledge_graph",
+        "isExtraImport": true,
+        "detail": "graph.knowledge_graph",
+        "documentation": {}
+    },
+    {
+        "label": "json",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "json",
+        "description": "json",
+        "detail": "json",
+        "documentation": {}
+    },
+    {
+        "label": "json_graph",
+        "importPath": "networkx.readwrite",
+        "description": "networkx.readwrite",
+        "isExtraImport": true,
+        "detail": "networkx.readwrite",
+        "documentation": {}
+    },
+    {
+        "label": "argparse",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "argparse",
+        "description": "argparse",
+        "detail": "argparse",
+        "documentation": {}
+    },
+    {
+        "label": "sys",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "sys",
+        "description": "sys",
+        "detail": "sys",
+        "documentation": {}
+    },
+    {
+        "label": "extract_python_symbols",
+        "importPath": "agents.hydrologist",
+        "description": "agents.hydrologist",
+        "isExtraImport": true,
+        "detail": "agents.hydrologist",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_repo",
+        "importPath": "agents.surveyor",
+        "description": "agents.surveyor",
+        "isExtraImport": true,
+        "detail": "agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "extract_python_symbols",
+        "kind": 2,
+        "importPath": "src.agents.hydrologist",
+        "description": "src.agents.hydrologist",
+        "peekOfCode": "def extract_python_symbols(code: str, model: str = \"mistral\") -> str:\n    prompt = (\n        \"I have a Python file. Extract all import statements, public function names, \"\n        \"class names, and inheritance.\\n\\n\"\n        f\"{code}\"\n    )\n    return _generate_with_ollama(prompt, model)",
+        "detail": "src.agents.hydrologist",
+        "documentation": {}
+    },
+    {
+        "label": "ModuleNode",
+        "kind": 6,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "class ModuleNode(BaseModel):\n    path: str\n    imports: list[str]\n    functions: list[str]\n    classes: list[str]\n    complexity_score: int = 0\n    change_velocity_30d: int = 0\n    is_dead_code_candidate: bool = False\n    last_modified: str = \"\"\n@dataclass",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "ParsedPythonFile",
+        "kind": 6,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "class ParsedPythonFile:\n    imports: list[str]\n    functions: list[str]\n    classes: list[str]\n    complexity_score: int\nPY_COMPLEXITY_NODES = {\n    \"if_statement\",\n    \"for_statement\",\n    \"while_statement\",\n    \"try_statement\",",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "extract_imports_and_defs",
+        "kind": 2,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "def extract_imports_and_defs(file_path: str | Path, language: Language) -> ParsedPythonFile:\n    file_path = Path(file_path)\n    code = file_path.read_text(encoding=\"utf-8\", errors=\"replace\")\n    return _parse_python(code, language)\ndef _run_git(repo_path: Path, args: Iterable[str]) -> subprocess.CompletedProcess[str]:\n    return subprocess.run(\n        [\"git\", \"-C\", str(repo_path), *args],\n        capture_output=True,\n        text=True,\n        check=True,",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "extract_git_velocity",
+        "kind": 2,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "def extract_git_velocity(repo_path: Path, file_path: Path, days: int = 30) -> int:\n    try:\n        rel_path = os.path.relpath(file_path, repo_path)\n        result = _run_git(\n            repo_path,\n            [\"log\", f\"--since={days} days ago\", \"--pretty=format:%h\", \"--\", rel_path],\n        )\n        commits = [line for line in result.stdout.splitlines() if line.strip()]\n        return len(commits)\n    except Exception:",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "extract_last_modified",
+        "kind": 2,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "def extract_last_modified(repo_path: Path, file_path: Path) -> str:\n    try:\n        rel_path = os.path.relpath(file_path, repo_path)\n        result = _run_git(repo_path, [\"log\", \"-1\", \"--format=%cI\", \"--\", rel_path])\n        value = result.stdout.strip()\n        if value:\n            return value\n    except Exception:\n        pass\n    timestamp = file_path.stat().st_mtime",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "analyze_repo",
+        "kind": 2,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "def analyze_repo(repo_path: str | Path = \"target_repo\") -> tuple[list[ModuleNode], nx.DiGraph]:\n    repo_path = Path(repo_path)\n    shared_library = build_languages()\n    python_language = load_language(shared_library, \"python\")\n    graph = nx.DiGraph()\n    modules: list[ModuleNode] = []\n    for root, _, files in os.walk(repo_path):\n        for filename in files:\n            if not filename.endswith(\".py\"):\n                continue",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "PY_COMPLEXITY_NODES",
+        "kind": 5,
+        "importPath": "src.agents.surveyor",
+        "description": "src.agents.surveyor",
+        "peekOfCode": "PY_COMPLEXITY_NODES = {\n    \"if_statement\",\n    \"for_statement\",\n    \"while_statement\",\n    \"try_statement\",\n    \"with_statement\",\n    \"except_clause\",\n    \"match_statement\",\n}\ndef _node_text(code: bytes, node) -> str:",
+        "detail": "src.agents.surveyor",
+        "documentation": {}
+    },
+    {
+        "label": "build_languages",
+        "kind": 2,
+        "importPath": "src.analyzers.tree_sitter_analyzer",
+        "description": "src.analyzers.tree_sitter_analyzer",
+        "peekOfCode": "def build_languages(\n    vendor_dir: str | Path = \"vendor\",\n    out_path: str | Path = \"build/my-languages.so\",\n    languages: Iterable[str] | None = None,\n    force: bool = False,\n) -> Path:\n    vendor_path = Path(vendor_dir)\n    out_path = Path(out_path)\n    out_path.parent.mkdir(parents=True, exist_ok=True)\n    if out_path.exists() and not force:",
+        "detail": "src.analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "load_language",
+        "kind": 2,
+        "importPath": "src.analyzers.tree_sitter_analyzer",
+        "description": "src.analyzers.tree_sitter_analyzer",
+        "peekOfCode": "def load_language(shared_library: str | Path, language_name: str) -> Language:\n    return Language(str(shared_library), language_name)\ndef make_parser(language: Language) -> Parser:\n    parser = Parser()\n    parser.set_language(language)\n    return parser",
+        "detail": "src.analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "make_parser",
+        "kind": 2,
+        "importPath": "src.analyzers.tree_sitter_analyzer",
+        "description": "src.analyzers.tree_sitter_analyzer",
+        "peekOfCode": "def make_parser(language: Language) -> Parser:\n    parser = Parser()\n    parser.set_language(language)\n    return parser",
+        "detail": "src.analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "DEFAULT_LANGUAGES",
+        "kind": 5,
+        "importPath": "src.analyzers.tree_sitter_analyzer",
+        "description": "src.analyzers.tree_sitter_analyzer",
+        "peekOfCode": "DEFAULT_LANGUAGES = (\"python\", \"sql\", \"yaml\", \"javascript\", \"typescript\")\ndef build_languages(\n    vendor_dir: str | Path = \"vendor\",\n    out_path: str | Path = \"build/my-languages.so\",\n    languages: Iterable[str] | None = None,\n    force: bool = False,\n) -> Path:\n    vendor_path = Path(vendor_dir)\n    out_path = Path(out_path)\n    out_path.parent.mkdir(parents=True, exist_ok=True)",
+        "detail": "src.analyzers.tree_sitter_analyzer",
+        "documentation": {}
+    },
+    {
+        "label": "graph_to_json_data",
+        "kind": 2,
+        "importPath": "src.graph.knowledge_graph",
+        "description": "src.graph.knowledge_graph",
+        "peekOfCode": "def graph_to_json_data(graph: nx.DiGraph) -> dict[str, Any]:\n    return json_graph.node_link_data(graph)\ndef write_graph_json(graph: nx.DiGraph, path: str | Path) -> None:\n    output_path = Path(path)\n    output_path.parent.mkdir(parents=True, exist_ok=True)\n    data = graph_to_json_data(graph)\n    output_path.write_text(json.dumps(data, indent=2), encoding=\"utf-8\")",
+        "detail": "src.graph.knowledge_graph",
+        "documentation": {}
+    },
+    {
+        "label": "write_graph_json",
+        "kind": 2,
+        "importPath": "src.graph.knowledge_graph",
+        "description": "src.graph.knowledge_graph",
+        "peekOfCode": "def write_graph_json(graph: nx.DiGraph, path: str | Path) -> None:\n    output_path = Path(path)\n    output_path.parent.mkdir(parents=True, exist_ok=True)\n    data = graph_to_json_data(graph)\n    output_path.write_text(json.dumps(data, indent=2), encoding=\"utf-8\")",
+        "detail": "src.graph.knowledge_graph",
+        "documentation": {}
+    },
+    {
+        "label": "clone_repo",
+        "kind": 2,
+        "importPath": "src.cli",
+        "description": "src.cli",
+        "peekOfCode": "def clone_repo(repo_url: str, target_dir: str = \"target_repo\") -> None:\n    target_path = Path(target_dir)\n    target_path.mkdir(parents=True, exist_ok=True)\n    if any(target_path.iterdir()):\n        raise RuntimeError(f\"Target directory is not empty: {target_path}\")\n    subprocess.run([\"git\", \"clone\", repo_url, str(target_path)], check=True)\n    print(f\"Repository cloned to {target_path}\")\ndef build_languages_cmd(args: argparse.Namespace) -> None:\n    build_languages(\n        vendor_dir=args.vendor_dir,",
+        "detail": "src.cli",
+        "documentation": {}
+    },
+    {
+        "label": "build_languages_cmd",
+        "kind": 2,
+        "importPath": "src.cli",
+        "description": "src.cli",
+        "peekOfCode": "def build_languages_cmd(args: argparse.Namespace) -> None:\n    build_languages(\n        vendor_dir=args.vendor_dir,\n        out_path=args.out_path,\n        languages=args.languages,\n        force=args.force,\n    )\n    print(f\"Tree-sitter library ready at {args.out_path}\")\ndef survey_cmd(args: argparse.Namespace) -> None:\n    analyze_repo(args.repo_path)",
+        "detail": "src.cli",
+        "documentation": {}
+    },
+    {
+        "label": "survey_cmd",
+        "kind": 2,
+        "importPath": "src.cli",
+        "description": "src.cli",
+        "peekOfCode": "def survey_cmd(args: argparse.Namespace) -> None:\n    analyze_repo(args.repo_path)\n    print(\"Surveyor analysis complete. Graph saved to .cartography/module_graph.json\")\ndef ollama_extract_cmd(args: argparse.Namespace) -> None:\n    code = Path(args.file).read_text(encoding=\"utf-8\", errors=\"replace\")\n    response = extract_python_symbols(code, model=args.model)\n    print(response)\ndef _parse_args(argv: list[str]) -> argparse.Namespace:\n    parser = argparse.ArgumentParser(description=\"Codebase Cartography CLI\")\n    subparsers = parser.add_subparsers(dest=\"command\", required=True)",
+        "detail": "src.cli",
+        "documentation": {}
+    },
+    {
+        "label": "ollama_extract_cmd",
+        "kind": 2,
+        "importPath": "src.cli",
+        "description": "src.cli",
+        "peekOfCode": "def ollama_extract_cmd(args: argparse.Namespace) -> None:\n    code = Path(args.file).read_text(encoding=\"utf-8\", errors=\"replace\")\n    response = extract_python_symbols(code, model=args.model)\n    print(response)\ndef _parse_args(argv: list[str]) -> argparse.Namespace:\n    parser = argparse.ArgumentParser(description=\"Codebase Cartography CLI\")\n    subparsers = parser.add_subparsers(dest=\"command\", required=True)\n    clone_parser = subparsers.add_parser(\"clone\", help=\"Clone a target repository\")\n    clone_parser.add_argument(\"repo_url\", help=\"Git repository URL\")\n    clone_parser.add_argument(\"--target-dir\", default=\"target_repo\")",
+        "detail": "src.cli",
+        "documentation": {}
+    },
+    {
+        "label": "main",
+        "kind": 2,
+        "importPath": "src.cli",
+        "description": "src.cli",
+        "peekOfCode": "def main(argv: list[str] | None = None) -> None:\n    args = _parse_args(argv or sys.argv[1:])\n    args.func(args)\nif __name__ == \"__main__\":\n    main()",
+        "detail": "src.cli",
+        "documentation": {}
+    }
+]

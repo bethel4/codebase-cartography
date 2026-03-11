@@ -3,9 +3,13 @@ name = "codebase-cartography"
 version = "0.1.0"
 description = "Automated codebase intelligence system"
 dependencies = [
-    "tree-sitter",
     "networkx",
     "pydantic",
     "sqlglot",
-    "ollama"
+    "ollama",
+    "tree-sitter>=0.25",
+    "dbt-core>=1.11.7",
+    "dbt-duckdb>=1.10.1",
+    "numpy>=2.2.6",
+    "scipy>=1.15.3",
 ]

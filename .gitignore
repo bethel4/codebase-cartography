@@ -1,0 +1,11 @@
+.venv/
+target_repo/
+
+build/
+logs/
+*.log
+__pycache__/
+*.pyc
+.DS_Store
+*.sqlite3
+*.db
