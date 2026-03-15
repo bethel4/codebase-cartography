@@ -91,6 +91,7 @@ Surveyor and Hydrologist are intentionally independent and can run **in parallel
 - **Hydrologist**: extracts *data lineage* from SQL/dbt, Python data access patterns, and DAG configs to build a lineage graph.
 - **Semanticist**: enriches nodes/edges with meaning (e.g., dataset descriptions, ownership, domain tags, LLM summaries).
 - **Archivist**: persists snapshots over time and annotates changes (e.g., git velocity, churn, “what changed since last run”).
+- **Navigator**: query interface over artifacts with evidence citations (see `docs/NAVIGATOR.md`).
 
 ## Inputs and outputs (what to check)
 

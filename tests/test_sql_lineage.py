@@ -46,3 +46,21 @@ def test_invalid_sql_logs_warning(tmp_path, caplog):
 
     assert deps == []
     assert "Could not parse SQL" in caplog.text
+
+
+def test_dbt_macro_fallback_produces_dependencies(tmp_path, caplog):
+    sql = """
+    with source as (
+        select * from {{ source('raw', 'orders') }}
+    )
+    select * from source
+    """
+    path = write_sql(tmp_path, "stg_orders.sql", sql)
+    analyzer = SQLLineageAnalyzer()
+    caplog.set_level(logging.WARNING)
+    deps = analyzer.analyze_file(path)
+    assert deps
+    assert deps[0].target == "stg_orders"
+    assert "raw.orders" in deps[0].sources
+    # Fallback should avoid warning spam for templated SQL.
+    assert "Could not parse SQL" not in caplog.text

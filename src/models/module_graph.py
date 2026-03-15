@@ -10,6 +10,9 @@ class ModuleNode(BaseModel):
     imports: list[str]
     functions: list[str]
     classes: list[str]
+    dead_exports: list[str] = Field(default_factory=list)
+    entrypoint_exports: list[str] = Field(default_factory=list)
+    framework_exports: list[str] = Field(default_factory=list)
     complexity_score: int = 0
     change_velocity_30d: int = 0
     is_dead_code_candidate: bool = False

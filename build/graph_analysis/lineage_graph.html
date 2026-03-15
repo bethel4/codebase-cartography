@@ -1,0 +1,155 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script src="lib/bindings/utils.js"></script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 800px;
+                 background-color: #0b1020;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "supplies", "label": "supplies", "shape": "dot", "title": "{\n  \"name\": \"supplies\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "stg_supplies", "label": "stg_supplies", "shape": "dot", "title": "{\n  \"name\": \"stg_supplies\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "orders", "label": "orders", "shape": "dot", "title": "{\n  \"name\": \"orders\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "order_items", "label": "order_items", "shape": "dot", "title": "{\n  \"name\": \"order_items\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "stg_orders", "label": "stg_orders", "shape": "dot", "title": "{\n  \"name\": \"stg_orders\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "locations", "label": "locations", "shape": "dot", "title": "{\n  \"name\": \"locations\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "stg_locations", "label": "stg_locations", "shape": "dot", "title": "{\n  \"name\": \"stg_locations\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "products", "label": "products", "shape": "dot", "title": "{\n  \"name\": \"products\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "stg_products", "label": "stg_products", "shape": "dot", "title": "{\n  \"name\": \"stg_products\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "stg_order_items", "label": "stg_order_items", "shape": "dot", "title": "{\n  \"name\": \"stg_order_items\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "customers", "label": "customers", "shape": "dot", "title": "{\n  \"name\": \"customers\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "stg_customers", "label": "stg_customers", "shape": "dot", "title": "{\n  \"name\": \"stg_customers\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "raw.raw_products", "label": "raw.raw_products", "shape": "dot", "title": "{\n  \"name\": \"raw.raw_products\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "raw.raw_stores", "label": "raw.raw_stores", "shape": "dot", "title": "{\n  \"name\": \"raw.raw_stores\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "raw.raw_orders", "label": "raw.raw_orders", "shape": "dot", "title": "{\n  \"name\": \"raw.raw_orders\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "raw.raw_supplies", "label": "raw.raw_supplies", "shape": "dot", "title": "{\n  \"name\": \"raw.raw_supplies\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "raw.raw_items", "label": "raw.raw_items", "shape": "dot", "title": "{\n  \"name\": \"raw.raw_items\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "raw.raw_customers", "label": "raw.raw_customers", "shape": "dot", "title": "{\n  \"name\": \"raw.raw_customers\",\n  \"kind\": \"table\",\n  \"source_files\": [\n    \"target_repo/target/manifest.json\"\n  ]\n}"}, {"color": "#97c2fc", "font": {"color": "#e7e9f3"}, "id": "python:target_repo/.github/workflows/scripts/dbt_cloud_run_job.py", "label": "python:target_repo/.github/workflows/scripts/dbt_cloud_run_job.py", "shape": "dot", "title": "{\n  \"name\": \"python:target_repo/.github/workflows/scripts/dbt_cloud_run_job.py\",\n  \"kind\": \"script\",\n  \"source_files\": [\n    \"target_repo/.github/workflows/scripts/dbt_cloud_run_job.py\"\n  ]\n}"}]);
+                  edges = new vis.DataSet([{"arrows": "to", "from": "stg_supplies", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "supplies"}, {"arrows": "to", "from": "stg_supplies", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "order_items"}, {"arrows": "to", "from": "orders", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "customers"}, {"arrows": "to", "from": "order_items", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "orders"}, {"arrows": "to", "from": "stg_orders", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "orders"}, {"arrows": "to", "from": "stg_orders", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "order_items"}, {"arrows": "to", "from": "stg_locations", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "locations"}, {"arrows": "to", "from": "stg_products", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "products"}, {"arrows": "to", "from": "stg_products", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "order_items"}, {"arrows": "to", "from": "stg_order_items", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "order_items"}, {"arrows": "to", "from": "stg_customers", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "customers"}, {"arrows": "to", "from": "raw.raw_products", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "stg_products"}, {"arrows": "to", "from": "raw.raw_stores", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "stg_locations"}, {"arrows": "to", "from": "raw.raw_orders", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "stg_orders"}, {"arrows": "to", "from": "raw.raw_supplies", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "stg_supplies"}, {"arrows": "to", "from": "raw.raw_items", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "stg_order_items"}, {"arrows": "to", "from": "raw.raw_customers", "title": "{\n  \"source_file\": \"target_repo/target/manifest.json\",\n  \"transformation_type\": \"dbt_manifest\",\n  \"line_range\": \"\"\n}", "to": "stg_customers"}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  
+
+
+                  
+
+                  network = new vis.Network(container, data, options);
+
+                  
+
+                  
+
+                  
+
+
+                  
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

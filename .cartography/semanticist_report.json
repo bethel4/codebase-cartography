@@ -1,0 +1,166 @@
+{
+  "semanticist": {
+    "bulk_model": "openai/gpt-4o-mini",
+    "synth_model": "openai/gpt-4o-mini",
+    "embed_model": "",
+    "budget": {
+      "max_total_tokens": 400000,
+      "total_estimated_tokens": 435,
+      "calls": 1
+    }
+  },
+  "modules": [],
+  "domains": {},
+  "fde_day_one": {
+    "primary_domains": {},
+    "domain_interactions": [],
+    "architectural_patterns": [],
+    "risks_and_constraints": [
+      {
+        "module": "semanticist",
+        "issue": "If `domains` is empty or records are missing, Semanticist did not run successfully on module paths."
+      }
+    ],
+    "day_one_priorities": [
+      {
+        "module": "",
+        "dependencies": [],
+        "evidence": {}
+      }
+    ],
+    "fde_questions": {
+      "1_primary_data_ingestion_path": {
+        "ingestion_modules": [],
+        "lineage_sources": [],
+        "supporting_edges": [],
+        "evidence": []
+      },
+      "2_critical_outputs": {
+        "outputs": [],
+        "lineage_sinks": [],
+        "evidence": [
+          {
+            "file_path": ".cartography/lineage_graph.json",
+            "line_numbers": null,
+            "analysis_method": "static analysis"
+          }
+        ]
+      },
+      "3_blast_radius": {
+        "blast_radius": {
+          "most_critical_module": null,
+          "limitations": [
+            "No module nodes found in module graph artifact."
+          ],
+          "static_impacts": {}
+        },
+        "evidence": []
+      },
+      "4_business_logic_concentration": {
+        "concentration": {
+          "top_complexity_modules": [],
+          "top_velocity_modules_30d": [],
+          "domain_counts": {}
+        },
+        "evidence": [
+          {
+            "file_path": ".cartography/module_graph.json",
+            "line_numbers": null,
+            "analysis_method": "static analysis"
+          }
+        ]
+      },
+      "5_git_velocity": {
+        "git_velocity": {
+          "limitation": "Artifacts provide `change_velocity_30d` only; 90-day velocity requires git history re-analysis.",
+          "top_changed_30d": []
+        },
+        "evidence": [
+          {
+            "file_path": ".cartography/module_graph.json",
+            "line_numbers": null,
+            "analysis_method": "static analysis"
+          }
+        ]
+      }
+    }
+  },
+  "fde_answers": {
+    "primary_domains": {},
+    "domain_interactions": [],
+    "architectural_patterns": [],
+    "risks_and_constraints": [
+      {
+        "module": "semanticist",
+        "issue": "If `domains` is empty or records are missing, Semanticist did not run successfully on module paths."
+      }
+    ],
+    "day_one_priorities": [
+      {
+        "module": "",
+        "dependencies": [],
+        "evidence": {}
+      }
+    ],
+    "fde_questions": {
+      "1_primary_data_ingestion_path": {
+        "ingestion_modules": [],
+        "lineage_sources": [],
+        "supporting_edges": [],
+        "evidence": []
+      },
+      "2_critical_outputs": {
+        "outputs": [],
+        "lineage_sinks": [],
+        "evidence": [
+          {
+            "file_path": ".cartography/lineage_graph.json",
+            "line_numbers": null,
+            "analysis_method": "static analysis"
+          }
+        ]
+      },
+      "3_blast_radius": {
+        "blast_radius": {
+          "most_critical_module": null,
+          "limitations": [
+            "No module nodes found in module graph artifact."
+          ],
+          "static_impacts": {}
+        },
+        "evidence": []
+      },
+      "4_business_logic_concentration": {
+        "concentration": {
+          "top_complexity_modules": [],
+          "top_velocity_modules_30d": [],
+          "domain_counts": {}
+        },
+        "evidence": [
+          {
+            "file_path": ".cartography/module_graph.json",
+            "line_numbers": null,
+            "analysis_method": "static analysis"
+          }
+        ]
+      },
+      "5_git_velocity": {
+        "git_velocity": {
+          "limitation": "Artifacts provide `change_velocity_30d` only; 90-day velocity requires git history re-analysis.",
+          "top_changed_30d": []
+        },
+        "evidence": [
+          {
+            "file_path": ".cartography/module_graph.json",
+            "line_numbers": null,
+            "analysis_method": "static analysis"
+          }
+        ]
+      }
+    }
+  },
+  "inputs": {
+    "module_graph_nodes": 0,
+    "lineage_graph_nodes": 0
+  }
+}

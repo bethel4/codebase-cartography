@@ -6,3 +6,14 @@ jaffle_shop:
       path: ./target.duckdb
       threads: 1
       extensions: []
+
+# Many sample dbt projects ship with `profile: default`. Providing a compatible
+# DuckDB profile here makes `dbt deps/compile` work out-of-the-box for demos.
+default:
+  target: dev
+  outputs:
+    dev:
+      type: duckdb
+      path: ./target.duckdb
+      threads: 1
+      extensions: []

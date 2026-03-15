@@ -26,6 +26,10 @@ class DAGConfigAnalyzer:
             edges.extend(self._parse_python(text, path))
 
         for path in repo_path.rglob("**/schema*.yml"):
+            # Some tools (e.g. dbt compiled artifacts) can produce directory names that
+            # look like files (e.g. `schema.yml/`). Guard against that.
+            if path.is_dir():
+                continue
             edges.extend(self._parse_schema(path))
         return edges
 

@@ -45,16 +45,39 @@ class SQLLineageAnalyzer:
         if not text.strip():
             return []
 
+        # Pre-extract dbt macro references so we can fall back when templating
+        # makes SQL unparsable after stripping.
+        macro_sources = self._extract_macro_sources(text)
+
         text = self._strip_jinja(text)
         text = self._fix_missing_alias_expressions(text)
+        text = self._fix_missing_binary_operands(text)
 
-        statements = self._parse_statements(text, source_path)
+        statements, last_error, dialects_tried = self._parse_statements(text, source_path)
         dependencies: list[SQLDependency] = []
         for statement in statements:
             if statement is None:
                 LOGGER.debug("Skipping empty parse result for %s", source_path)
                 continue
             dependencies.extend(self._statement_dependencies(statement, path))
+
+        # Fallback: dbt models often contain heavy Jinja/macros; if parsing produced no
+        # statements but we can extract refs/sources, emit a best-effort dependency.
+        if not dependencies and macro_sources:
+            target = self._default_target_for(path)
+            if target:
+                dependencies.append(SQLDependency(target=target, sources=sorted(set(macro_sources)), source_file=path))
+                LOGGER.info("SQL parse failed for %s; using dbt macro fallback (target=%s, sources=%s).", source_path, target, len(macro_sources))
+                return dependencies
+
+        # Preserve old behavior for truly invalid SQL: warn but do not raise.
+        if not dependencies and last_error:
+            LOGGER.warning(
+                "Could not parse SQL in %s after trying %s: %s",
+                source_path,
+                dialects_tried,
+                last_error,
+            )
         return dependencies
 
     def analyze_directory(self, root: Path) -> list[SQLDependency]:
@@ -76,7 +99,7 @@ class SQLLineageAnalyzer:
         dependencies.extend(self._cte_dependencies(statement, path))
         return dependencies
 
-    def _parse_statements(self, text: str, path: Path) -> Iterable[exp.Expression]:
+    def _parse_statements(self, text: str, path: Path) -> tuple[Iterable[exp.Expression], Exception | None, list[str]]:
         last_error: Exception | None = None
         preferred = self._dialects_from_context(path, text)
         dialects_to_try = list(dict.fromkeys(preferred + list(self.DIALECTS)))
@@ -88,15 +111,8 @@ class SQLLineageAnalyzer:
                 LOGGER.debug("Failed to parse %s as %s: %s", path, dialect, exc)
                 continue
             LOGGER.debug("Parsed %s using %s dialect", path, dialect)
-            return statements
-        if last_error:
-            LOGGER.warning(
-                "Could not parse SQL in %s after trying %s: %s",
-                path,
-                dialects_to_try,
-                last_error,
-            )
-        return []
+            return statements, None, dialects_to_try
+        return [], last_error, dialects_to_try
 
     def _extract_targets(self, statement: exp.Expression) -> list[str]:
         targets: list[str] = []
@@ -168,10 +184,41 @@ class SQLLineageAnalyzer:
         expression before AS" cases that otherwise cause sqlglot to hard-fail.
         """
         # In select lists, missing expression before `AS` is often preceded by a comma.
-        text = re.sub(r"(?i),\s*as\s+([a-zA-Z_][\\w$]*)", r", NULL as \\1", text)
+        text = re.sub(r"(?i),\s*as\s+([a-zA-Z_][\\w$]*)", r", NULL as \g<1>", text)
         # Also handle cases where a line begins with `as alias` (after macro stripping).
-        text = re.sub(r"(?im)^\\s*as\\s+([a-zA-Z_][\\w$]*)", r"  NULL as \\1", text)
+        text = re.sub(r"(?im)^\\s*as\\s+([a-zA-Z_][\\w$]*)", r"  NULL as \g<1>", text)
         return text
+
+    def _fix_missing_binary_operands(self, text: str) -> str:
+        """
+        Best-effort cleanup for macro stripping that can leave invalid binary ops:
+
+        - "(  / 100)" -> "(NULL / 100)"
+        - " / 100" at line start -> "NULL / 100"
+        """
+        text = re.sub(r"(?im)\\(\\s*/\\s*(\\d+)\\s*\\)", r"(NULL / \g<1>)", text)
+        text = re.sub(r"(?im)^\\s*/\\s*(\\d+)", r"  NULL / \g<1>", text)
+        return text
+
+    def _extract_macro_sources(self, text: str) -> list[str]:
+        sources: list[str] = []
+        for match in self._ref_macro.finditer(text):
+            name = match.group("name")
+            if name:
+                sources.append(self._normalize_identifier(name))
+        for match in self._source_macro.finditer(text):
+            schema = self._normalize_identifier(match.group("schema"))
+            table = self._normalize_identifier(match.group("table"))
+            if schema and table:
+                sources.append(f"{schema}.{table}")
+        return sources
+
+    @staticmethod
+    def _default_target_for(path: Path) -> str | None:
+        # For dbt model files, the output relation name defaults to the filename stem.
+        if path.suffix != ".sql":
+            return None
+        return path.stem or None
 
     def _dialects_from_context(self, path: Path, text: str) -> list[str]:
         hints: list[str] = []

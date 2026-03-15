@@ -32,3 +32,20 @@ def test_blast_radius(sample_graph):
     assert radius == ["analytics.orders", "analytics.users"]
     # nonexistent node returns empty list
     assert sample_graph.blast_radius("missing") == []
+
+
+def test_hydrologist_records_data_cycles(tmp_path):
+    """Hydrologist should record lineage cycles in graph metadata without crashing."""
+    pytest.importorskip("sqlglot")
+    from agents.hydrologist import build_lineage_graph
+
+    repo = tmp_path / "repo"
+    repo.mkdir()
+
+    (repo / "a.sql").write_text("CREATE TABLE a AS SELECT * FROM b;")
+    (repo / "b.sql").write_text("CREATE TABLE b AS SELECT * FROM a;")
+
+    _, graph, summary = build_lineage_graph(repo)
+    assert summary.edge_count == 2
+    assert "data_cycles" in graph.graph.graph
+    assert any(set(cycle) == {"a", "b"} for cycle in graph.graph.graph["data_cycles"])

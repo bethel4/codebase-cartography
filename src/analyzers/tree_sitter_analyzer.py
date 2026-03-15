@@ -142,7 +142,13 @@ def load_language(shared_library: str | Path, language_name: str) -> Language:
 
 def make_parser(language: Language) -> Parser:
     parser = Parser()
-    parser.language = language
+    # tree_sitter API differs across versions:
+    # - newer: `parser.language = language`
+    # - older: `parser.set_language(language)`
+    try:
+        parser.language = language
+    except AttributeError:
+        parser.set_language(language)
     return parser
 
 
